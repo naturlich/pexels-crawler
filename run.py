@@ -7,6 +7,7 @@ import time
 import os.path
 import random
 import requests
+import wget
 from lxml import etree
 from imp import reload
 
@@ -37,11 +38,16 @@ def get_picture(url, download_dir, user_agent):
     for url in selector.xpath('//img[@class="photo-item__img"]/@src'):
         url = "https://static." + url.split("images.")[1].split("?")[0]
         picture_name = url.split("?")[0].split("/")[-1].replace('-', '_')
+        print(url)
         print(picture_name)
         print("downloading picutre %s" % (picture_name))
-        with open(download_dir + picture_name, 'wb') as f:
+        '''
+	with open(download_dir + picture_name, 'wb') as f:
             f.write(requests.get(url).content)
             f.close()
+	'''
+        #wget.download(url, picture_name)
+        os.system("wget -O {0} {1}".format(download_dir + picture_name, url))
         with open(download_dir + "list.txt", 'ab') as f:
             url = url+'\n'
             f.write(url.encode(encoding='utf-8'))

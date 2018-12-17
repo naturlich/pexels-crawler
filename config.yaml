@@ -1,7 +1,7 @@
 #Http Header (for the most time, you don't need to change it)
-user_agent: 'Mozilla/5.0 AppleWebKit/537.36 Chrome/65.0.3325.181 Safari/537.36'
+user_agent: 'Chrome/71.0.3578.80'
 #Where you want to download
-download_dir: '/users/haohao/Desktop/pexels/'
+download_dir: '/Users/dereksu/Downloads/pexels-crawler/pexels/'
 #The content you need
 element: 'cat'
 #The number of pages you want to get
